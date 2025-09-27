@@ -1,4 +1,4 @@
-package com.maxo99.microservices.product_service;
+package com.maxo99.microservices.product;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
