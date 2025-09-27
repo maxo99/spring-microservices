@@ -1,12 +1,16 @@
 
+# README
 
+<https://www.youtube.com/watch?v=yn_stY3HCr8>
 
-https://www.youtube.com/watch?v=yn_stY3HCr8
-
-
-https://github.com/SaiUpadhyayula/spring-boot-3-microservices-course
-
+<https://github.com/SaiUpadhyayula/spring-boot-3-microservices-course>
 
 ## Notes
 
-- https://start.spring.io/
+- <https://start.spring.io/>
+
+## Cmds
+
+- `mvn clean verify`
+
+## Config Notes
