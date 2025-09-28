@@ -23,8 +23,6 @@ class ProductServiceApplicationTests {
 	void setUp() {
 		RestAssured.baseURI = "http://localhost";
 		RestAssured.port = randomPort;
-
-
 	}
 
 	static {
