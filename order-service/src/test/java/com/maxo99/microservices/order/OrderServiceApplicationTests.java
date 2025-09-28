@@ -6,12 +6,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
+import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.utility.DockerImageName;
+
+import com.maxo99.microservices.order.stubs.InventoryClientStub;
 
 import io.restassured.RestAssured;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureWireMock(port = 0)
 class OrderServiceApplicationTests {
 
 	@ServiceConnection
@@ -30,13 +34,17 @@ class OrderServiceApplicationTests {
 		mySQLContainer.start();
 	}
 
+
+
 	@Test
 	void shouldCreateOrder() {
+		InventoryClientStub.stubCheckAvailability("iphone_13", 50);
+
 		String requestBody = """
 				{
-				  "skuCode": "ABC123",
+				  "skuCode": "iphone_13",
 				  "price": 100.00,
-				  "quantity": 2
+				  "quantity": 50
 				}
 				""";
 		RestAssured.given()
@@ -46,5 +54,26 @@ class OrderServiceApplicationTests {
 				.then().statusCode(201)
 				.body(Matchers.equalTo("Order Placed Successfully"));
 	}
+
+
+
+	@Test
+	void shouldNotCreateOrder() {
+		InventoryClientStub.stubCheckAvailability("iphone_13", 50);
+
+		String requestBody = """
+				{
+				  "skuCode": "iphone_13",
+				  "price": 100.00,
+				  "quantity": 51
+				}
+				""";
+		RestAssured.given()
+				.header("Content-Type", "application/json")
+				.body(requestBody)
+				.when().post("/api/order")
+				.then().statusCode(500);
+				}
+
 
 }
