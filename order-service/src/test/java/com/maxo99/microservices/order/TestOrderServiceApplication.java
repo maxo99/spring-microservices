@@ -1,4 +1,4 @@
-package com.maxo99.mciroservices.order;
+package com.maxo99.microservices.order;
 
 import org.springframework.boot.SpringApplication;
 

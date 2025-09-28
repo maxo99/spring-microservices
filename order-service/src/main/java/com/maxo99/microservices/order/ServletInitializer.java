@@ -1,4 +1,4 @@
-package com.maxo99.mciroservices.order;
+package com.maxo99.microservices.order;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
