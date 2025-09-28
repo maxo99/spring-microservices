@@ -1,4 +1,4 @@
-package com.maxo99.microservices.controller;
+package com.maxo99.microservices.order.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
