@@ -1,8 +1,11 @@
 package com.maxo99.microservices.product.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.maxo99.microservices.product.dto.ProductRequest;
+import com.maxo99.microservices.product.dto.ProductResponse;
 import com.maxo99.microservices.product.model.Product;
 import com.maxo99.microservices.product.repository.ProductRepository;
 
@@ -15,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ProductService {
     private final ProductRepository productRepository;
 
-    public void createProduct(ProductRequest request) {
+    public String createProduct(ProductRequest request) {
 
         Product product = Product.builder()
                 .name(request.name())
@@ -24,5 +27,18 @@ public class ProductService {
                 .build();
         productRepository.save(product);
         log.info("Product {} is saved", product.getId());
+        return product.getId();
+    }
+
+    public List<ProductResponse> getAllProducts() {
+        return productRepository
+        .findAll()
+        .stream()
+        .map(p -> new ProductResponse(p.getId(), p.getName(), p.getDescription(), p.getPrice())).toList();
+    }
+
+    public ProductResponse getProductById(String id) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        return new ProductResponse(product.getId(), product.getName(), product.getDescription(), product.getPrice());
     }
 }

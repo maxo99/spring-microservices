@@ -12,5 +12,7 @@
 ## Cmds
 
 - `mvn clean verify`
+- `curl -X POST -H "Content-Type: application/json" -d '{"name":"test-name","product":"test-product","price":0.123}' localhost:8080/api/product`
+
 
 ## Config Notes
