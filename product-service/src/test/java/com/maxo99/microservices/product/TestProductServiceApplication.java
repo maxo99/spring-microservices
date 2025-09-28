@@ -1,8 +1,7 @@
-package com.maxo99.microservices.product_service;
+package com.maxo99.microservices.product;
 
 import org.springframework.boot.SpringApplication;
 
-import com.maxo99.microservices.product.ProductServiceApplication;
 
 public class TestProductServiceApplication {
 

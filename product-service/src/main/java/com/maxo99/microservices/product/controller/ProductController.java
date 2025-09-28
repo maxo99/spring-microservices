@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.maxo99.microservices.product.dto.ProductIdResponse;
 import com.maxo99.microservices.product.dto.ProductRequest;
 import com.maxo99.microservices.product.dto.ProductResponse;
 import com.maxo99.microservices.product.model.Product;
@@ -30,8 +31,9 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String createProduct(@RequestBody ProductRequest productRequest) {
-        return productService.createProduct(productRequest);
+    public ProductIdResponse createProduct(@RequestBody ProductRequest productRequest) {
+        String product_id =  productService.createProduct(productRequest);
+        return new ProductIdResponse(product_id);
     }
 
     @GetMapping
@@ -43,7 +45,8 @@ public class ProductController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ProductResponse getProduct(@PathVariable String id) {
-        return productService.getProductById(id);
+        Product product = productService.getProductById(id);
+        return new ProductResponse(product.getId(), product.getName(), product.getDescription(), product.getPrice());
     }
 
 }

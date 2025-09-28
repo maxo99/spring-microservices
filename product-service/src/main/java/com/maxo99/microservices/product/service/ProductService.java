@@ -37,8 +37,7 @@ public class ProductService {
         .map(p -> new ProductResponse(p.getId(), p.getName(), p.getDescription(), p.getPrice())).toList();
     }
 
-    public ProductResponse getProductById(String id) {
-        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
-        return new ProductResponse(product.getId(), product.getName(), product.getDescription(), product.getPrice());
+    public Product getProductById(String id) {
+        return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
     }
 }
