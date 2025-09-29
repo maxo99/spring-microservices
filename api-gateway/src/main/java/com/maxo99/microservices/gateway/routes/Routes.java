@@ -1,4 +1,4 @@
-package com.maxo99.microservices.api_gateway;
+package com.maxo99.microservices.gateway.routes;
 
 import java.net.URI;
 

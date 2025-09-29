@@ -1,0 +1,33 @@
+services:
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:24.0.1
+    command:  ["start-dev", "--import-realm"]
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      DB_VENDOR: mysql
+      DB_ADDR: mysql-keycloak
+      # KC_DB_URL_PORT: 3306
+      DB_USER: keycloak
+      DB_PASSWORD: password
+      # KC_HOSTNAME_STRICT_BACKCHANNEL: 'false'
+      # KC_PROXY: edge
+    ports:
+      - 8181:8080
+    depends_on:
+      - mysql-keycloak
+    volumes:
+      - ./docker/keycloak/realms/:/opt/keycloak/data/import/
+  mysql-keycloak:
+    container_name: mysql-keycloak
+    image: mysql:8.3.0
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: password
+    # ports:
+    #   - 3308:3306
+    volumes:
+      - ./docker/mysql-keycloak/data:/var/lib/mysql

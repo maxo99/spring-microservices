@@ -1,4 +1,4 @@
-package com.maxo99.microservices.api_gateway;
+package com.maxo99.microservices.gateway;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
