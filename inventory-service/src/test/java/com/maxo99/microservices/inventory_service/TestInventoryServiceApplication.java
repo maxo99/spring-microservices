@@ -2,6 +2,8 @@ package com.maxo99.microservices.inventory_service;
 
 import org.springframework.boot.SpringApplication;
 
+import com.maxo99.microservices.inventory.InventoryServiceApplication;
+
 public class TestInventoryServiceApplication {
 
 	public static void main(String[] args) {

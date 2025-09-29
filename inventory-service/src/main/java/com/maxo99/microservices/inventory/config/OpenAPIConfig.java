@@ -1,4 +1,4 @@
-package com.maxo99.microservices.inventory_service.config;
+package com.maxo99.microservices.inventory.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

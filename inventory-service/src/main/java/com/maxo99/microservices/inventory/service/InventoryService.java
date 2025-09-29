@@ -1,8 +1,8 @@
-package com.maxo99.microservices.inventory_service.service;
+package com.maxo99.microservices.inventory.service;
 
 import org.springframework.stereotype.Service;
 
-import com.maxo99.microservices.inventory_service.repository.InventoryRepository;
+import com.maxo99.microservices.inventory.repository.InventoryRepository;
 
 import lombok.RequiredArgsConstructor;
 

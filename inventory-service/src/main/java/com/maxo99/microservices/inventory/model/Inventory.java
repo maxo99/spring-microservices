@@ -1,4 +1,4 @@
-package com.maxo99.microservices.inventory_service.model;
+package com.maxo99.microservices.inventory.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

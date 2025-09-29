@@ -1,4 +1,4 @@
-package com.maxo99.microservices.inventory_service.controller;
+package com.maxo99.microservices.inventory.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.maxo99.microservices.inventory_service.service.InventoryService;
+import com.maxo99.microservices.inventory.service.InventoryService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,8 +1,8 @@
-package com.maxo99.microservices.inventory_service.repository;
+package com.maxo99.microservices.inventory.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.maxo99.microservices.inventory_service.model.Inventory;
+import com.maxo99.microservices.inventory.model.Inventory;
 
 
 public interface InventoryRepository extends JpaRepository<Inventory, Long> {
