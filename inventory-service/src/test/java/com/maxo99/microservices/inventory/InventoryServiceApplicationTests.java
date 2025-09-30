@@ -1,4 +1,4 @@
-package com.maxo99.microservices.inventory_service;
+package com.maxo99.microservices.inventory;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

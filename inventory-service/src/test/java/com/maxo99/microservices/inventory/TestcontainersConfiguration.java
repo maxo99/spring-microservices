@@ -1,4 +1,4 @@
-package com.maxo99.microservices.inventory_service;
+package com.maxo99.microservices.inventory;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
