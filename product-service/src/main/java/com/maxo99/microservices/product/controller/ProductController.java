@@ -31,9 +31,9 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductIdResponse createProduct(@RequestBody ProductRequest productRequest) {
-        String product_id =  productService.createProduct(productRequest);
-        return new ProductIdResponse(product_id);
+    public ProductResponse createProduct(@RequestBody ProductRequest productRequest) {
+        ProductResponse response =  productService.createProduct(productRequest);
+        return response;
     }
 
     @GetMapping
@@ -45,8 +45,7 @@ public class ProductController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ProductResponse getProduct(@PathVariable String id) {
-        Product product = productService.getProductById(id);
-        return new ProductResponse(product.getId(), product.getName(), product.getDescription(), product.getPrice());
+        return productService.getProductById(id);
     }
 
 }

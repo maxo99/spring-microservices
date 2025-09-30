@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ProductService {
     private final ProductRepository productRepository;
 
-    public String createProduct(ProductRequest request) {
+    public ProductResponse createProduct(ProductRequest request) {
 
         Product product = Product.builder()
                 .name(request.name())
@@ -27,17 +27,21 @@ public class ProductService {
                 .build();
         productRepository.save(product);
         log.info("Product {} is saved", product.getId());
-        return product.getId();
+        return new ProductResponse(product.getId(), product.getName(), product.getDescription(),
+                product.getSkuCode(),
+                product.getPrice());
     }
 
     public List<ProductResponse> getAllProducts() {
         return productRepository
-        .findAll()
-        .stream()
-        .map(p -> new ProductResponse(p.getId(), p.getName(), p.getDescription(), p.getPrice())).toList();
+                .findAll()
+                .stream()
+                .map(p -> new ProductResponse(p.getId(), p.getName(), p.getDescription(), p.getSkuCode(), p.getPrice()))
+                .toList();
     }
 
-    public Product getProductById(String id) {
-        return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+    public ProductResponse getProductById(String id) {
+        Product product =  productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        return new ProductResponse(product.getId(), product.getName(), product.getDescription(), product.getSkuCode(), product.getPrice());
     }
 }
