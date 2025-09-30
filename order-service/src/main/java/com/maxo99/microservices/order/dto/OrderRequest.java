@@ -3,8 +3,11 @@ package com.maxo99.microservices.order.dto;
 import java.math.BigDecimal;
 
 public record OrderRequest(
-        String orderNumber,
-        String skuCode,
-        BigDecimal price,
-        Integer quantity) {
+                String orderNumber,
+                String skuCode,
+                BigDecimal price,
+                Integer quantity,
+                UserDetails userDetails) {
+        public record UserDetails(String firstName, String lastName, String email) {
+        }
 }
