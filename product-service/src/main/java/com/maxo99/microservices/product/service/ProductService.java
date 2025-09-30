@@ -24,6 +24,7 @@ public class ProductService {
                 .name(request.name())
                 .description(request.description())
                 .price(request.price())
+                .skuCode(request.skuCode())
                 .build();
         productRepository.save(product);
         log.info("Product {} is saved", product.getId());
