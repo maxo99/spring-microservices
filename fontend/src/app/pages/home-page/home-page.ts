@@ -60,10 +60,6 @@ export class HomePageComponent implements OnInit {
         this.orderFailed = true;
         this.orderSuccess = false;
         this.quantityIsNull = true;
-      } else if (!product.skuCode) {
-        console.error('Product is missing skuCode:', product);
-        this.orderFailed = true;
-        this.orderSuccess = false;
       } else {
         const order: Order = {
           skuCode: product.skuCode,
@@ -72,13 +68,10 @@ export class HomePageComponent implements OnInit {
           userDetails: userDetails
         }
 
-        console.log('Creating order with:', order);
         this.orderService.orderProduct(order).subscribe(() => {
           this.orderSuccess = true;
-          this.orderFailed = false;
         }, error => {
-          this.orderFailed = true;
-          this.orderSuccess = false;
+          this.orderFailed = false;
         })
       }
     })
