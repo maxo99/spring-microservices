@@ -13,8 +13,8 @@ import { Order } from "../../model/order";
   templateUrl: './home-page.html',
   standalone: true,
   imports: [
-    AsyncPipe,
-    JsonPipe,
+    // AsyncPipe,
+    // JsonPipe,
     FormsModule
   ],
   styleUrl: './home-page.css'
