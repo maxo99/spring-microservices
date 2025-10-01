@@ -22,20 +22,24 @@
 
 ### Port Mappings
 
-| Service                   | Port   |
-|---------------------------|--------|
-| Angular-Frontend          | 4200   |
-| API Gateway               | 8088   |
-| Product Service           | 8081   |
-| Inventory Service         | 8082   |
-| Order Service             | 8083   |
-| MongoDB-ProductService    | 27017  |
-| MySQL-OrderService        | 3306   |
-| MySQL-InventoryService    | 3307   |
-| Kafka-Broker              | 9092   |
-| Kafka-Broker              | 29092  |
-| Kafka-UI                  | 8086   |
-| ZooKeeper                 | 2181   |
-| Schema-Registry           | 8085   |
-| Grafana-Loki              | 3101   |
-| Prometheus                | 9090   |
+| Service                   | Port   | Note              |
+|---------------------------|--------|-------------------|
+| APIGateway                | 8088   |                   |
+| Keycloak                  | 8181   |                   |
+| Frontend.Angular          | 4200   |                   |
+| OrderService              | 8083   |                   |
+| OrderService.MySQL        | 3306   |                   |
+| ProductService            | 8081   |                   |
+| ProductService.MongoDB    | 27017  |                   |
+| InventoryService          | 8082   |                   |
+| InventoryService.MySQL    | 3307   |                   |
+| Schema-Registry           | 8085   | ConfluentInc Package  |
+| ZooKeeper                 | 2181   | Kafka Cluster Orchestrator                  |
+| Kafka-Broker              | 9092   |                   |
+| Kafka-Broker              | 29092  |                   |
+| Kafka-UI                  | 8086   |                   |
+| Zipkin                    | 9411   | Trace Exporter     |
+| Prometheus                | 9090   | Metric Collector  |
+| Grafana                   | 3001   | Dashboard         |
+| Grafana-Loki              | 3101   | Log Aggregator    |
+| Grafana-Tempo             | 3110   | Distribute Tracing |
