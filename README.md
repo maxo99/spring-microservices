@@ -24,16 +24,18 @@
 
 | Service                   | Port   |
 |---------------------------|--------|
+| Angular-Frontend          | 4200   |
 | API Gateway               | 8088   |
 | Product Service           | 8081   |
 | Inventory Service         | 8082   |
 | Order Service             | 8083   |
-| Angular-Frontend          | 4200   |
 | MongoDB-ProductService    | 27017  |
 | MySQL-OrderService        | 3306   |
-| MySQL-InventoryService    | 3306   |
+| MySQL-InventoryService    | 3307   |
 | Kafka-Broker              | 9092   |
 | Kafka-Broker              | 29092  |
 | Kafka-UI                  | 8086   |
 | ZooKeeper                 | 2181   |
 | Schema-Registry           | 8085   |
+| Grafana-Loki              | 3101   |
+| Prometheus                | 9090   |
