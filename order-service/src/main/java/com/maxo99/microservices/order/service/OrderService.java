@@ -36,7 +36,11 @@ public class OrderService {
         order.setSkuCode(orderRequest.skuCode());
         order.setQuantity(orderRequest.quantity());
 
-        OrderPlacedEvent event = new OrderPlacedEvent(order.getOrderNumber(), orderRequest.userDetails().email());
+        OrderPlacedEvent event = new OrderPlacedEvent();
+        event.setOrderNumber(order.getOrderNumber());
+        event.setEmail(orderRequest.userDetails().email());
+        event.setFirstName(orderRequest.userDetails().firstName());
+        event.setLastName(orderRequest.userDetails().lastName());
         log.info("OrderPlacedEvent:{} sending", event.getOrderNumber());
         kafkaTemplate.send("order-placed", event);
         log.info("OrderPlacedEvent:{} sent", event.getOrderNumber());

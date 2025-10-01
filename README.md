@@ -36,4 +36,4 @@
 | Kafka-Broker              | 29092  |
 | Kafka-UI                  | 8086   |
 | ZooKeeper                 | 2181   |
-<!-- | Schema-Registry              | 8085  | -->
+| Schema-Registry           | 8085   |
