@@ -1,6 +1,7 @@
 package com.maxo99.microservices.order.service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -39,8 +40,8 @@ public class OrderService {
         OrderPlacedEvent event = new OrderPlacedEvent();
         event.setOrderNumber(order.getOrderNumber());
         event.setEmail(orderRequest.userDetails().email());
-        event.setFirstName(orderRequest.userDetails().firstName());
-        event.setLastName(orderRequest.userDetails().lastName());
+        event.setFirstName(Objects.requireNonNullElse(orderRequest.userDetails().firstName(), "first-name"));
+        event.setLastName(Objects.requireNonNullElse(orderRequest.userDetails().lastName(), "last-name"));
         log.info("OrderPlacedEvent:{} sending", event.getOrderNumber());
         kafkaTemplate.send("order-placed", event);
         log.info("OrderPlacedEvent:{} sent", event.getOrderNumber());

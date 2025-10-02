@@ -43,3 +43,11 @@
 | Grafana                   | 3001   | Dashboard         |
 | Grafana-Loki              | 3101   | Log Aggregator    |
 | Grafana-Tempo             | 3110   | Distribute Tracing |
+
+
+### Local Pages
+
+- [Keycloak.admin](http://localhost:8181/admin/)
+- [Frontend.Angular](http://localhost:4200/)
+- [Kafka-UI.local.order-placed](http://localhost:8086/ui/clusters/local/all-topics/order-placed)
+- [Grafana](http://localhost:3001/)
