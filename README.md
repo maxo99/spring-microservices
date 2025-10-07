@@ -34,7 +34,7 @@
 | InventoryService          | 8082   |                   |
 | InventoryService.MySQL    | 3307   |                   |
 | Schema-Registry           | 8085   | ConfluentInc Package  |
-| ZooKeeper                 | 2181   | Kafka Cluster Orchestrator                  |
+| ZooKeeper                 | 2181   | Kafka Cluster Orchestrator  |
 | Kafka-Broker              | 9092   |                   |
 | Kafka-Broker              | 29092  |                   |
 | Kafka-UI                  | 8086   |                   |

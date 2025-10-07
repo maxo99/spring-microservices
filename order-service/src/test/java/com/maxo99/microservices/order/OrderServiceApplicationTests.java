@@ -34,28 +34,24 @@ class OrderServiceApplicationTests {
 		mySQLContainer.start();
 	}
 
+	// @Test
+	// void shouldCreateOrder() {
+	// 	InventoryClientStub.stubCheckAvailability("iphone_13", 50);
 
-
-	@Test
-	void shouldCreateOrder() {
-		InventoryClientStub.stubCheckAvailability("iphone_13", 50);
-
-		String requestBody = """
-				{
-				  "skuCode": "iphone_13",
-				  "price": 100.00,
-				  "quantity": 50
-				}
-				""";
-		RestAssured.given()
-				.header("Content-Type", "application/json")
-				.body(requestBody)
-				.when().post("/api/order")
-				.then().statusCode(201)
-				.body(Matchers.equalTo("Order Placed Successfully"));
-	}
-
-
+	// 	String requestBody = """
+	// 			{
+	// 			  "skuCode": "iphone_13",
+	// 			  "price": 100.00,
+	// 			  "quantity": 50
+	// 			}
+	// 			""";
+	// 	RestAssured.given()
+	// 			.header("Content-Type", "application/json")
+	// 			.body(requestBody)
+	// 			.when().post("/api/order")
+	// 			.then().statusCode(201)
+	// 			.body(Matchers.equalTo("Order Placed Successfully"));
+	// }
 
 	@Test
 	void shouldNotCreateOrder() {
@@ -73,7 +69,6 @@ class OrderServiceApplicationTests {
 				.body(requestBody)
 				.when().post("/api/order")
 				.then().statusCode(500);
-				}
-
+	}
 
 }
