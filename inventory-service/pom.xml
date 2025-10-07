@@ -159,6 +159,22 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>maxo5499/new-${project.artifactId}</name>
+						<publish>true</publish>
+					</image>
+					<docker>
+						<publishRegistry>
+							<username>maxo5499</username>
+							<password>${env.dockerPassword}</password>
+						</publishRegistry>
+					</docker>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
